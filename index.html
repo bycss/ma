@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>密码随机生成器</title>
     <style>
         * {
             margin: 0;
@@ -388,13 +388,9 @@
 
             if (!chars) chars = 'abcdefghijklmnopqrstuvwxyz';
 
-            let baseLength = length;
-            if (options.prefix) baseLength -= options.prefix.length;
-            if (options.suffix) baseLength -= options.suffix.length;
-            baseLength = Math.max(1, baseLength);
-
+            // 生成指定长度的随机字符，前缀和后缀额外添加
             let password = '';
-            for (let i = 0; i < baseLength; i++) {
+            for (let i = 0; i < length; i++) {
                 password += chars.charAt(Math.floor(Math.random() * chars.length));
             }
 
